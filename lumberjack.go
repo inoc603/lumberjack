@@ -151,6 +151,11 @@ func (l *Logger) Write(p []byte) (n int, err error) {
 	return n, err
 }
 
+// Sync exposes the file.Sync
+func (l *Logger) Sync() error {
+	return l.file.Sync()
+}
+
 // Close implements io.Closer, and closes the current logfile.
 func (l *Logger) Close() error {
 	l.mu.Lock()
